@@ -58,12 +58,11 @@ END
 CALL sp_DSBaiViet('Tên thể loại cần tìm');
 --k
 ALTER TABLE theloai ADD COLUMN SLBaiViet INT DEFAULT 0;
-CREATE TRIGGER tg_CapNhatTheLoai AFTER INSERT ON baiviet
+CREATE TRIGGER tg_CapNhatTheLoai 
+AFTER INSERT ON baiviet
 FOR EACH ROW
 BEGIN
-    DECLARE TenTL_moi VARCHAR(255);
-    SET TenTL_moi = NEW.ten_tloai;
-    UPDATE theloai SET SLBaiViet = SLBaiViet + 1 WHERE ten_tloai = TenTL_moi;
+  UPDATE theloai SET SLBaiViet = SLBaiViet + 1 WHERE baiviet.ma_tloai = NEW.ma_tloai;
 END;
 --l
 CREATE TABLE users (
