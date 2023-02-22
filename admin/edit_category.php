@@ -57,7 +57,7 @@
                 <form action="process_edit_category.php" method="post">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">Mã thể loại</span>
-                        <input type="text" class="form-control" name="txtCatId" value="<?=$r['ma_tloai']?>">
+                        <input type="text" class="form-control" name="txtCatId" readonly value="<?=$r['ma_tloai']?>">
                     </div>
 
                     <div class="input-group mt-3 mb-3">
