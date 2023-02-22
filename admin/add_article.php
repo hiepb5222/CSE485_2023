@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,13 +30,13 @@
                         <a class="nav-link" href="../index.php">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="category.php">Thể loại</a>
+                        <a class="nav-link " href="category.php">Thể loại</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="author.php">Tác giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="article.php">Bài viết</a>
+                        <a class="nav-link active fw-bold" href="article.php">Bài viết</a>
                     </li>
                 </ul>
                 </div>
@@ -46,16 +48,44 @@
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
-                <h3 class="text-center text-uppercase fw-bold">Thêm mới thể loại</h3>
-                <form action="process_add_category.php" method="post">
+                <h3 class="text-center text-uppercase fw-bold">Thêm mới bài viết</h3>
+                <form action="process_add_article.php" method="post">
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Tên thể loại</span>
-                        <input type="text" class="form-control" name="txtCatName" >
+                        <span class="input-group-text" id="lblTieude">Tiêu đề</span>
+                        <input type="text" class="form-control" name="txtTieude" >
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblBaihat">Tên bài hát</span>
+                        <input type="text" class="form-control" name="txtBaihat" >
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblTheloai">Tên thể loại</span>
+                        <input type="text" class="form-control" name="txtTheloai" >
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblTomtat">Tóm tắt</span>
+                        <input type="text" class="form-control" name="txtTomtat" >
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblNoidung">Nội dung </span>
+                        <input type="text" class="form-control" name="txtNoidung" >
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblTacGia">Tác giả</span>
+                        <input type="text" class="form-control" name="txtTacgia" >
+                    </div>
+                    <!-- <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblNgayViet">Ngày Viết</span>
+                        <input type="text" class="form-control" name="txtNgayviet" >
+                    </div> -->
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblHinhanh">Hình ảnh</span>
+                        <input type="text" class="form-control" name="txtHinhanh" >
                     </div>
 
                     <div class="form-group  float-end ">
                         <input type="submit" value="Thêm" class="btn btn-success">
-                        <a href="category.php" class="btn btn-warning ">Quay lại</a>
+                        <a href="article.php" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
             </div>
