@@ -46,55 +46,59 @@
                 </div>
             </div>
         </nav>
-
+        
     </header>
     <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
-                <a href="add_article.php" class="btn btn-success">Thêm mới</a>
+                <a href="add_article.php" class="btn btn-success">Thêm mới</a>           
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Tiêu đề</th>
                             <th scope="col">Tên bài hát</th>
-                            <th scope="col">Tên thể loại</th>
+                            <th scope="col" class="col-sm-1">Tên thể loại</th>
                             <th scope="col">Tóm tắt</th>
-                            <th scope="col">Nội dung</th>
+                            <th scope="col" class="col-sm-1">Nội dung</th>
                             <th scope="col">Tác giả</th>
-                            <th scope="col">Ngày Viết</th>
+                            <th scope="col" class="col-sm-1">Ngày Viết</th>
                             <th scope="col">Hình ảnh</th>
-                            <th>Chức năng</th>
+                            <th class="col-sm-1">Chức năng</th>
                             
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $count =0;
-                        if(mysqli_num_rows($result) > 0){
+                        if(mysqli_num_rows($result) > 0) {
                             while($row = mysqli_fetch_assoc($result)){
                                 $count ++;
-                        ?>
+                                ?>
                         <tr>
-                            <td><?= $count?></td>
-                            <td><?= $row['tieude']?></td>
-                            <td><?= $row['ten_bhat']?></td>
-                            <td><?= $row['ten_tloai']?></td>
-                            <td><?= $row['tomtat']?></td>
-                            <td><?= $row['noidung']?></td>
-                            <td><?= $row['ten_tgia']?></td>
-                            <td><?= $row['ngayviet']?></td>
-                            <td><?= $row['hinhanh']?></td>
+                            <td><?php echo $count?></td>
+                            <td><?php echo $row['tieude']?></td>
+                            <td><?php echo $row['ten_bhat']?></td>
+                            <td><?php echo $row['ten_tloai']?></td>
+                            <td><?php echo $row['tomtat']?></td>
+                            <td><?php echo $row['noidung']?></td>
+                            <td><?php echo $row['ten_tgia']?></td>
+                            <td><?php echo $row['ngayviet']?></td>
                             <td>
-                                <a href="edit_article.php?sid=<?= $row['ma_bviet']?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                
+                                <img style="width: 100px;" src="/CSE485_2023/images/songs/<?php echo $row['hinhanh'];?>">
+                                <!-- <img src="/CSE485_2023/images/logo2.png"> -->
                             </td>
-                            <td>
-                                <a href="process_delete_article.php?sid=<?= $row['ma_bviet']?>"><i class="fa-solid fa-trash"></i></a>
+                            <td >
+                                <a href="edit_article.php?sid=<?php echo $row['ma_bviet']?>" ><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="process_delete_article.php?sid=<?php echo $row['ma_bviet']?>" onclick="return confirm('Bạn có muốn xóa bản ghi hay không?');"><i class="fa-solid fa-trash"></i></a>
                             </td>
+                            <!-- <td>
+                            </td> -->
                         </tr>
 
-                        <?php
+                                <?php
                             }
                         }
                         ?>
