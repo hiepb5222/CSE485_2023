@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style_login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"> 
 </head>
 <body>
     <header>
@@ -22,13 +23,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" aria-current="page" href="./">Trang chủ</a>
+                        <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../index.php">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="category.php">Thể loại</a>
+                        <a class="nav-link " href="category.php">Thể loại</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="author.php">Tác giả</a>
@@ -37,7 +38,7 @@
                         <a class="nav-link" href="article.php">Bài viết</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="users.php">Người dùng</a>
+                        <a class="nav-link active fw-bold" href="users.php">Người dùng</a>
                     </li>
                 </ul>
                 </div>
@@ -48,60 +49,39 @@
     <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
-            <div class="col-sm-3">
-                <div class="card mb-2" style="width: 100%;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">
-                            <a href="" class="text-decoration-none">Người dùng</a>
-                        </h5>
+            <div class="col-sm">
+                <h3 class="text-center text-uppercase fw-bold">Thêm thông tin người dùng</h3>
+                <form action="process_add_users.php" method="post">
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" ><i class="fas fa-user"></i></span>
+                                <input type="text" name="txtName" class="form-control" placeholder="Name" >
+                            </div>
 
-                        <h5 class="h1 text-center">
-                            110
-                        </h5>
-                    </div>
-                </div>
-            </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" ><i class="fas fa-user"></i></span>
+                                <input type="text" name="txtUser" class="form-control" placeholder="Username" >
+                            </div>
 
-            <div class="col-sm-3">
-                <div class="card mb-2" style="width: 100%;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">
-                            <a href="" class="text-decoration-none">Thể loại</a>
-                        </h5>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" ><i class="bi bi-envelope-fill"></i></span>
+                                <input type="email" name="txtEmail" class="form-control" placeholder="Email" >
+                            </div>
 
-                        <h5 class="h1 text-center">
-                            10
-                        </h5>
-                    </div>
-                </div>
-            </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" ><i class="fas fa-key"></i></span>
+                                <input type="password" name="txtPass" class="form-control" placeholder="Password" >
+                            </div>
 
-            <div class="col-sm-3">
-                <div class="card mb-2" style="width: 100%;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">
-                            <a href="" class="text-decoration-none">Tác giả</a>
-                        </h5>
-
-                        <h5 class="h1 text-center">
-                            20
-                        </h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-3">
-                <div class="card mb-2" style="width: 100%;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">
-                            <a href="" class="text-decoration-none">Bài viết</a>
-                        </h5>
-
-                        <h5 class="h1 text-center">
-                            110
-                        </h5>
-                    </div>
-                </div>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text" ><i class="fas fa-key"></i></span>
+                                <input type="password" name="txtResetPass" class="form-control" placeholder="Reset password" >
+                            </div>
+                            
+                            <div class="form-group  float-end ">
+                                <input type="submit" id ="signbtn" name="signbtn"value="Lưu lại" class="btn btn-success">
+                                <a href="users.php" class="btn btn-warning ">Quay lại</a>
+                            </div>
+                </form>
             </div>
         </div>
     </main>
