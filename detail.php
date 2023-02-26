@@ -1,3 +1,13 @@
+<?php
+    //ketnoi
+    require_once './admin/DB_conn.php';
+    $id = $_GET['sid'];
+    //cau lenh 
+    $bv = "SELECT *FROM baiviet, theloai,tacgia WHERE ma_bviet = $id and baiviet.ma_tloai = theloai.ma_tloai and baiviet.ma_tgia=tacgia.ma_tgia";
+    //thuc thi cau lenh
+    $result = mysqli_query($conn, $bv);
+    $r = mysqli_fetch_assoc($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,17 +53,17 @@
        
                 <div class="row mb-5">
                     <div class="col-sm-4">
-                        <img src="images/songs/cayvagio.jpg" class="img-fluid" alt="...">
+                        <img src="images/songs/<?= $r['hinhanh']?>" class="img-fluid" alt="...">
                     </div>
                     <div class="col-sm-8">
                         <h5 class="card-title mb-2">
-                            <a href="" class="text-decoration-none">Cây và gió</a>
+                            <a href="" class="text-decoration-none"><?=$r['tieude']?></a>
                         </h5>
-                        <p class="card-text"><span class=" fw-bold">Bài hát: </span>Cây và gió</p>
-                        <p class="card-text"><span class=" fw-bold">Thể loại: </span>Nhạc trữ tình</p>
-                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span>Em và anh, hai đứa quen nhau thật tình cờ. Lời hát của anh từ bài hát “Cây và gió” đã làm tâm hồn em xao động. Nhưng sự thật phũ phàng rằng em chưa bao giờ nói cho anh biết những suy nghĩ tận sâu trong tim mình. Bởi vì em nhút nhát, em không dám đối mặt với thực tế khắc nghiệt, hay thực ra em không dám đối diện với chính mình.</p>
-                        <p class="card-text"><span class=" fw-bold">Nội dung: </span>Em và anh, hai đứa quen nhau thật tình cờ. Lời hát của anh từ bài hát “Cây và gió” đã làm tâm hồn em xao động. Nhưng sự thật phũ phàng rằng em chưa bao giờ nói cho anh biết những suy nghĩ tận sâu trong tim mình. Bởi vì em nhút nhát, em không dám đối mặt với thực tế khắc nghiệt, hay thực ra em không dám đối diện với chính mình.</p>
-                        <p class="card-text"><span class=" fw-bold">Tác giả: </span>Nguyễn Văn Giả</p>
+                        <p class="card-text"><span class=" fw-bold">Bài hát: </span><?=$r['ten_bhat']?> </p>
+                        <p class="card-text"><span class=" fw-bold">Thể loại: </span><?=$r['ten_tloai']?></p>
+                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?=$r['tomtat']?></p>
+                        <p class="card-text"><span class=" fw-bold">Nội dung: </span><?=$r['noidung']?></p>
+                        <p class="card-text"><span class=" fw-bold">Tác giả: </span><?=$r['ten_tgia']?></p>
 
                     </div>          
         </div>
