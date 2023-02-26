@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,42 +47,63 @@
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Thêm mới bài viết</h3>
-                <form action="process_add_article.php" method="post">
+                <form action="process_add_article.php" method="post" enctype="multipart/form-data">
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblTieude">Tiêu đề</span>
+                        <span class="input-group-text" style="width: 100px" id="lblTieude">Tiêu đề</span>
                         <input type="text" class="form-control" name="txtTieude" >
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblBaihat">Tên bài hát</span>
+                        <span class="input-group-text" style="width: 100px" id="lblBaihat">Tên bài hát</span>
                         <input type="text" class="form-control" name="txtBaihat" >
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblTheloai">Tên thể loại</span>
-                        <input type="text" class="form-control" name="txtTheloai" >
+                        <span class="input-group-text" style="width: 100px" id="lblTheloai">Tên thể loại</span>
+                        <select class="form-select" aria-label="Default select example" id="ten_tloai" name="txtTheloai" >
+                        <?php
+                             require_once 'DB_con.php';
+                            $sql = "SELECT * FROM theloai";
+                            $result = mysqli_query($conn, $sql);
+
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo "<option value='" . $row['ten_tloai'] . "'>" . $row['ten_tloai'] . "</option>";
+                        }
+                        ?>
+                            </select>
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblTomtat">Tóm tắt</span>
+                        <span class="input-group-text" style="width: 100px" id="lblTomtat">Tóm tắt</span>
                         <input type="text" class="form-control" name="txtTomtat" >
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblNoidung">Nội dung </span>
+                        <span class="input-group-text" style="width: 100px" d="lblNoidung">Nội dung </span>
                         <input type="text" class="form-control" name="txtNoidung" >
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblTacGia">Tác giả</span>
-                        <input type="text" class="form-control" name="txtTacgia" >
+                        <span class="input-group-text" style="width: 100px" id="lblTacGia">Tác giả</span>
+                        <select class="form-select" aria-label="Default select example" id="ten_tgia" name="txtTacgia" >
+                        <?php
+                             require_once 'DB_con.php';
+                            $sql = "SELECT * FROM tacgia";
+                            $result = mysqli_query($conn, $sql);
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo "<option value='" . $row['ten_tgia'] . "'>" . $row['ten_tgia'] . "</option>";
+                        }
+                            
+                        ?>
+                            </select>
+                        
                     </div>
                     <!-- <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblNgayViet">Ngày Viết</span>
                         <input type="text" class="form-control" name="txtNgayviet" >
                     </div> -->
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblHinhanh">Hình ảnh</span>
-                        <input type="text" class="form-control" name="txtHinhanh" >
+                        <span class="input-group-text" style="width: 100px" id="lblHinhanh"> Hình ảnh</span>
+                        <input type="file" class="form-control" name="txtHinhanh" >
                     </div>
 
                     <div class="form-group  float-end ">
-                        <input type="submit" value="Thêm" class="btn btn-success">
+                        <input type="submit" value="Thêm" name="submit" class="btn btn-success">
                         <a href="article.php" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
