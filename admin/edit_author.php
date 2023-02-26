@@ -1,3 +1,13 @@
+<?php
+    //ketnoi
+    require_once 'DB_conn.php';
+    $tentgia = $_GET['sid'];
+    //cau lenh 
+    $suatgia = "SELECT * FROM tacgia WHERE ma_tgia = $tentgia";
+    //thuc thi cau lenh
+    $result = mysqli_query($conn, $suatgia);
+    $r = mysqli_fetch_assoc($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +38,7 @@
                         <a class="nav-link" href="../index.php">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="category.php">Thể loại</a>
+                        <a class="nav-link" href="category.php">Thể loại</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active fw-bold" href="author.php">Tác giả</a>
@@ -42,56 +52,29 @@
         </nav>
 
     </header>
-    
     <main class="container mt-5 mb-5">
-    <div class="row">
+        <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
+        <div class="row">
             <div class="col-sm">
-                <a href="add_author.php" class="btn btn-success">Thêm mới</a>
+                <h3 class="text-center text-uppercase fw-bold">Sửa thông tin tác giả</h3>
+                <form action="process_edit_author.php" method="post">
+                <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatId">Mã tác giả</span>
+                        <input type="text" class="form-control" name="txtAuthorId" readonly value ="<?=$r['ma_tgia']?> ">
+                    </div>
+
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Tên tác giả</span>
+                        <input type="text" class="form-control" name="txtAuthorName" value ="<?=$r['ten_tgia']?>">
+                    </div>
+
+                    <div class="form-group  float-end ">
+                        <input type="submit" value="Lưu lại" class="btn btn-success">
+                        <a href="author.php" class="btn btn-warning ">Quay lại</a>
+                    </div>
+                </form>
             </div>
         </div>
-    <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tên tác giả</th>
-                            <th scope="col">Hình ảnh</th>
-                            <th>Sửa</th>
-                            <th>Xóa</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-    <?php
-    //ketnoi
-    require_once 'DB_con.php';
-    //cau lenh 
-    $hienthi = "SELECT * FROM tacgia ORDER BY ma_tgia";
-    //thuc thi cau lenh
-    $result = mysqli_query($conn, $hienthi);
-    //duyet qua result và in ra
-    $count =0;
-    if(mysqli_num_rows($result) > 0){
-    while($r = mysqli_fetch_assoc($result)){
-        $count ++;
-        ?>
-
-        <tr>
-                            <td><?= $count?></td>
-                            <td><?= $r['ten_tgia']?></td>
-                            <td><?= $r['hinh_tgia']?></td>
-                            <td>
-                            <a href="edit_author.php?sid=<?= $r['ma_tgia']?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                            </td>
-                            <td>
-                            <a onclick = "return confirm('Bạn có muốn xóa tác giả không?');"href="process_delete_author.php?sid=<?= $r['ma_tgia']?>"><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-        <?php
-    }
-}
-?>
-</tbody>
-                </table>
     </main>
     <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2" style="height:80px">
         <h4 class="text-center text-uppercase fw-bold">TLU's music garden</h4>
