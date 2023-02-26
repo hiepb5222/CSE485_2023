@@ -53,7 +53,15 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            110
+                        <?php 
+                            require_once 'DB_con.php';
+                            $sql="SELECT COUNT(id) as count FROM users";
+                            $result=mysqli_query($conn,$sql);
+                            $row=mysqli_fetch_array($result);
+                            $count=$row['count'];
+                            $count_str= strval($count);
+                            echo $count_str;
+                            ?>
                         </h5>
                     </div>
                 </div>
@@ -67,7 +75,15 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            10
+                        <?php 
+                            require_once 'DB_con.php';
+                            $sql="SELECT COUNT(ma_tloai) as count FROM theloai";
+                            $result=mysqli_query($conn,$sql);
+                            $row=mysqli_fetch_array($result);
+                            $count=$row['count'];
+                            $count_str= strval($count);
+                            echo $count_str;
+                            ?>
                         </h5>
                     </div>
                 </div>
@@ -81,7 +97,15 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            20
+                        <?php 
+                            require_once 'DB_con.php';
+                            $sql="SELECT COUNT(ma_tgia) as count FROM tacgia";
+                            $result=mysqli_query($conn,$sql);
+                            $row=mysqli_fetch_array($result);
+                            $count=$row['count'];
+                            $count_str= strval($count);
+                            echo $count_str;
+                            ?>
                         </h5>
                     </div>
                 </div>
@@ -95,7 +119,15 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            110
+                            <?php 
+                            require_once 'DB_con.php';
+                            $sql="SELECT COUNT(ma_bviet) as count FROM baiviet";
+                            $result=mysqli_query($conn,$sql);
+                            $row=mysqli_fetch_array($result);
+                            $count=$row['count'];
+                            $count_str= strval($count);
+                            echo $count_str;
+                            ?>
                         </h5>
                     </div>
                 </div>

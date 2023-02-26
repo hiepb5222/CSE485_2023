@@ -63,7 +63,7 @@
                     <tbody>
     <?php
     //ketnoi
-    require_once 'DB_conn.php';
+    require_once 'DB_con.php';
     //cau lenh 
     $hienthi = "SELECT * FROM tacgia ORDER BY ma_tgia";
     //thuc thi cau lenh
