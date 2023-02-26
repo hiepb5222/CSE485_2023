@@ -9,4 +9,3 @@ $servername = "localhost";
     if(!$conn){
         die('Kết nối tới Server lỗi');
     }
-    

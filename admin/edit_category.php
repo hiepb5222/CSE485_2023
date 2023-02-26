@@ -1,3 +1,10 @@
+<?php
+                     require_once 'DB_con.php';
+                     $ten_tloai = $_GET['sid'];
+                     $edit_sql = "SELECT * FROM theloai WHERE ma_tloai=$ten_tloai";
+                     $result = mysqli_query($conn, $edit_sql);
+                     $r = mysqli_fetch_assoc($result);
+                     ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,15 +54,15 @@
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Sửa thông tin thể loại</h3>
-                <form action="process_add_category.php" method="post">
+                <form action="process_edit_category.php" method="post">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">Mã thể loại</span>
-                        <input type="text" class="form-control" name="txtCatId" readonly value="1">
+                        <input type="text" class="form-control" name="txtCatId" readonly value="<?=$r['ma_tloai']?>">
                     </div>
 
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên thể loại</span>
-                        <input type="text" class="form-control" name="txtCatName" value = "Nhạc trữ tình">
+                        <input type="text" class="form-control" name="txtCatName" value="<?=$r['ten_tloai']?>">
                     </div>
 
                     <div class="form-group  float-end ">

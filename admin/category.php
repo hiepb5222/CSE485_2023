@@ -57,31 +57,36 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                     require_once 'DB_con.php';
+                     $category = "SELECT * FROM theloai";
+                     $result = mysqli_query($conn, $category);
+             
+                        $count =0;
+                        if(mysqli_num_rows($result) > 0){
+                            while($row = mysqli_fetch_assoc($result)){
+                                $count ++;
+                        ?>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Nhạc trữ tình</td>
+                            <td><?= $count?></td>
+                            <td><?= $row['ten_tloai']?></td>
                             <td>
-                                <a href="edit_category.php?id=1"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="edit_category.php?sid=<?php echo $row['ma_tloai']?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
+                                <a onclick="return confirm ('Bạn có muốn xóa thể loại này không ?');" href="process_delete_category.php?sid=<?php echo $row['ma_tloai']?>"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Nhạc cách mạng</td>
-                            <td>
-                                <a href="edit_category.php?id=2"><i class="fa-solid fa-pen-to-square"></i></a>
-                            </td>
-                            <td>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
+                        <?php
+                            }
+                        }
+                        ?>
                        
                     </tbody>
                 </table>
             </div>
         </div>
+        
     </main>
     <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2" style="height:80px">
         <h4 class="text-center text-uppercase fw-bold">TLU's music garden</h4>
