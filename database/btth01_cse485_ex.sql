@@ -1,7 +1,7 @@
 --a 
-SELECT * FROM baiviet WHERE ma_tloai = "nhạc trữ tình"
+SELECT * FROM baiviet,theloai where ten_tloai="Nhạc trữ tình" and baiviet.ma_tloai = theloai.ma_tloai
 --b 
-SELECT * FROM baiviet WHERE ma_tgia = "nhacvietplus"
+SELECT * FROM baiviet,tacgia where ten_tgia="nhacvietplus" and baiviet.ma_tgia = tacgia.ma_tgia
 --c 
 SELECT * FROM theloai 
 WHERE ma_tloai NOT IN (SELECT DISTINCT ma_tloai from bai viet)

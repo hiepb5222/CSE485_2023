@@ -54,55 +54,86 @@
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Sửa thông tin bài viết</h3>
-                <form action="process_edit_article.php" method="post">
+                <form action="process_edit_article.php" method="post" enctype="multipart/form-data">            
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblBaiviet">Mã bài viết</span>
+                        <span class="input-group-text "style="width: 100px" id="lblBaiviet">Mã bài viết</span>
                         <input  type="text" class="form-control" name="txtBaiviet" readonly
-                        value="<?= $row['ma_bviet']?>" >
+                        value="<?php echo $row['ma_bviet']?>" >
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblTieude">Tiêu đề</span>
+                        <span class="input-group-text " style="width: 100px" id="lblTieude">Tiêu đề</span>
                         <input type="text" class="form-control" name="txtTieude" 
-                        value="<?= $row['tieude']?>">
+                        value="<?php echo $row['tieude']?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblBaihat">Tên bài hát</span>
+                        <span class="input-group-text " style="width: 100px" id="lblBaihat">Tên bài hát</span>
                         <input type="text" class="form-control" name="txtBaihat" 
-                        value="<?= $row['ten_bhat']?>">
+                        value="<?php echo $row['ten_bhat']?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblTheloai">Tên thể loại</span>
-                        <input type="text" class="form-control" name="txtTheloai" 
-                        value="<?= $row['ten_tloai']?>">
+                        <span class="input-group-text" style="width: 100px" id="lblTheloai">Tên thể loại</span>
+                        <select class="form-select" aria-label="Default select example" name="txtTheloai"
+                        value="<?php echo $row['ten_tloai']?>">
+                        <?php
+                        require_once 'DB_con.php';
+                        $sqlTheloai = "SELECT ma_tloai, ten_tloai FROM theloai";
+                        $resultTheloai = $conn->query($sqlTheloai);
+                        if ($resultTheloai->num_rows > 0) {
+                            while ($theloai = $resultTheloai->fetch_assoc()) {
+
+                                $selected = ($theloai['ten_tloai'] == $row['ten_tloai']) ? 'selected' : '';
+                                echo "<option value='" . $theloai['ten_tloai'] . "' $selected>" . $theloai['ten_tloai'] . "</option>";
+                            
+                            }
+                        } else {
+                            echo "không tìm thấy thể loại";
+                        }
+
+                        ?>
+                    </select>
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblTomtat">Tóm tắt</span>
-                        <input type="text" class="form-control" name="txtTomtat" 
-                        value="<?= $row['tomtat']?>">
+                        <span class="input-group-text" style="width: 100px" id="lblTomtat">Tóm tắt</span>
+                        <input type="text" class="form-control " name="txtTomtat" 
+                        value="<?php echo $row['tomtat']?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblNoidung">Nội dung </span>
+                        <span class="input-group-text" style="width: 100px" id="lblNoidung">Nội dung </span>
                         <input type="text" class="form-control" name="txtNoidung" 
-                        value="<?= $row['noidung']?>">
+                        value="<?php echo $row['noidung']?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblTacGia">Tác giả</span>
-                        <input type="text" class="form-control" name="txtTacgia"
-                        value="<?= $row['ten_tgia']?>">
+                        <span class="input-group-text" style="width: 100px" id="lblTacGia">Tác giả</span>
+                        <select class="form-select" aria-label="Default select example" name="txtTacgia"
+                        value="<?php echo $row['ten_tgia']?>">
+                        <?php
+                        require_once 'DB_con.php';
+                        $sqlTacgia = "SELECT * FROM tacgia";
+                        $resultTacgia = $conn->query($sqlTacgia);
+                        if ($resultTacgia->num_rows > 0) {
+                            while ($tacgia = $resultTacgia->fetch_assoc()) {
+                                $selected = ($tacgia['ma_tgia'] == $row['ma_tgia']) ? 'selected' : '';
+                                echo "<option value='" . $tacgia['ten_tgia'] . "' $selected>" . $tacgia['ten_tgia'] . "</option>";
+                            }
+                        } else {
+                            echo "không tìm thấy tác giả";
+                        }
+
+                        ?>
+                    </select>
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblNgayViet">Ngày Viết</span>
+                        <span class="input-group-text" style="width: 100px" id="lblNgayViet">Ngày Viết</span>
                         <input type="text" class="form-control" name="txtNgayviet" 
-                        value="<?= $row['ngayviet']?>">
+                        value="<?php echo $row['ngayviet']?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblHinhanh">Hình ảnh</span>
-                        <input type="text" class="form-control" name="txtHinhanh" 
-                        value="<?= $row['hinhanh']?>">
+                        <span class="input-group-text" style="width: 100px" id="lblHinhanh">Hình ảnh</span>
+                        <input type="file" class="form-control" name="txtHinhanh" >
                     </div>
                     <div class="form-group  float-end ">
-                        <input type="submit" value="Lưu lại" class="btn btn-success">
-                        <a href="category.php" class="btn btn-warning ">Quay lại</a>
+                        <input type="submit" value="Lưu lại" name="submit" class="btn btn-success">
+                        <a href="article.php" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
             </div>
