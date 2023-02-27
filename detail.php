@@ -53,22 +53,22 @@
        
                 <div class="row mb-5">
                     <div class="col-sm-4">
-                        <img src="images/songs/<?php echo $r['hinhanh']?>" class="img-fluid" alt="...">
+                        <img src="images/songs/<?= $r['hinhanh']?>" class="img-fluid" alt="...">
                     </div>
                     <div class="col-sm-8">
                         <h5 class="card-title mb-2">
-                            <a href="" class="text-decoration-none"><?php echo $r['tieude']?></a>
+                            <a href="" class="text-decoration-none"><?=$r['tieude']?></a>
                         </h5>
-                        <p class="card-text"><span class=" fw-bold">Bài hát: </span><?php echo $r['ten_bhat']?> </p>
-                        <p class="card-text"><span class=" fw-bold">Thể loại: </span><?php echo $r['ten_tloai']?></p>
-                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?php echo $r['tomtat']?></p>
-                        <p class="card-text"><span class=" fw-bold">Nội dung: </span><?php echo $r['noidung']?></p>
-                        <p class="card-text"><span class=" fw-bold">Tác giả: </span><?php echo $r['ten_tgia']?></p>
+                        <p class="card-text"><span class=" fw-bold">Bài hát: </span><?=$r['ten_bhat']?> </p>
+                        <p class="card-text"><span class=" fw-bold">Thể loại: </span><?=$r['ten_tloai']?></p>
+                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?=$r['tomtat']?></p>
+                        <p class="card-text"><span class=" fw-bold">Nội dung: </span><?=$r['noidung']?></p>
+                        <p class="card-text"><span class=" fw-bold">Tác giả: </span><?=$r['ten_tgia']?></p>
 
                     </div>          
         </div>
     </main>
-    <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2" style="height:80px">
+    <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2 fixed-bottom" style="height:80px">
         <h4 class="text-center text-uppercase fw-bold">TLU's music garden</h4>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

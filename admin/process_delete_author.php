@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(!isset($_SESSION['admin'])){
+    header("Location:../login.php");
+}
+?>
+<?php
 //lay du lieu ma_tgia can xoa
 $matgia = $_GET['sid'];
 require_once 'DB_con.php';

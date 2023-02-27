@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(!isset($_SESSION['admin'])){
+    header("Location:../login.php");
+}
+?>
+<?php
     //ketnoi
     require_once 'DB_con.php';
     $tentgia = $_GET['sid'];
@@ -47,6 +53,7 @@
                         <a class="nav-link" href="article.php">Bài viết</a>
                     </li>
                 </ul>
+                <a class="nav-link " href="process_logout.php">Logout</a>
                 </div>
             </div>
         </nav>

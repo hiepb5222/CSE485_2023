@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(!isset($_SESSION['admin'])){
+    header("Location:../login.php");
+}
+?>
+<?php
     $vid= $_GET['sid'];
     require_once 'DB_con.php';
     $delete_sql="delete from users where id=$vid";
