@@ -1,6 +1,11 @@
 <?php
-    $matg = $_POST['txtAuthorId'];
-    $tentg = $_POST['txtAuthorName'];
+      function html_escape($text): string
+      {
+          $text = $text ?? '';
+          return htmlspecialchars($text, ENT_QUOTES, 'UTF-8', false); // Return escaped string
+      }
+    $matg = html_escape($_POST['txtAuthorId']);
+    $tentg = html_escape($_POST['txtAuthorName']);
 
     // ket noi csdl
     require_once 'DB_conn.php';

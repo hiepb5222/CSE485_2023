@@ -1,16 +1,23 @@
 <?php
     require_once 'DB_con.php';
+    function html_escape($text): string
+{
+   
+    $text = $text ?? ''; 
+
+    return htmlspecialchars($text, ENT_QUOTES, 'UTF-8', false); // Return escaped string
+}
 if(isset($_POST['submit'])) {
-    $tieude=$_POST['txtTieude'];
-    $baihat=$_POST['txtBaihat'];
-    $theloai=$_POST['txtTheloai'];
-    $tomtat=$_POST['txtTomtat'];
-    $noidung=$_POST['txtNoidung'];
-    $tacgia=$_POST['txtTacgia'];
+    $tieude=html_escape($_POST['txtTieude']);
+    $baihat=html_escape($_POST['txtBaihat']);
+    $theloai=html_escape($_POST['txtTheloai']);
+    $tomtat=html_escape($_POST['txtTomtat']);
+    $noidung=html_escape($_POST['txtNoidung']);
+    $tacgia=html_escape($_POST['txtTacgia']);
     // $ngayviet=$_POST['txtNgayviet'];
     $current_time = date("Y-m-d");
-    $hinhanh=$_FILES['txtHinhanh']['name'];
-    $hinhanh_tmp=$_FILES['txtHinhanh']['tmp_name'];
+    $hinhanh=html_escape($_FILES['txtHinhanh']['name']);
+    $hinhanh_tmp=html_escape($_FILES['txtHinhanh']['tmp_name']);
 
       
     $sql_checkId_tloai = "SELECT ma_tloai FROM theloai WHERE ten_tloai = '$theloai'";
