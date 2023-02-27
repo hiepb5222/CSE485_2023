@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['admin'])){
+    header("Location:../login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,6 +46,7 @@
                         <a class="nav-link" href="users.php">Người dùng</a>
                     </li>
                 </ul>
+                <a class="nav-link " href="process_logout.php">Logout</a>
                 </div>
             </div>
         </nav>

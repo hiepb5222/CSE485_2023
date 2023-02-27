@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if(!isset($_SESSION['admin'])){
+        header("Location:../login.php");
+    }
     require_once 'DB_con.php';
     $sql = "SELECT ma_bviet,tieude,ten_bhat,".'theloai.ten_tloai'.",tomtat,noidung,".'tacgia.ten_tgia'.",ngayviet,hinhanh FROM baiviet,tacgia,theloai where tacgia.ma_tgia=baiviet.ma_tgia and theloai.ma_tloai=baiviet.ma_tloai ORDER BY ngayviet DESC";
     $result = mysqli_query($conn, $sql);
@@ -43,6 +47,7 @@
                         <a class="nav-link active fw-bold" href="article.php">Bài viết</a>
                     </li>
                 </ul>
+                <a class="nav-link " href="process_logout.php">Logout</a>
                 </div>
             </div>
         </nav>

@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(!isset($_SESSION['admin'])){
+    header("Location:../login.php");
+}
+?>
+<?php
                      require_once 'DB_con.php';
                      $ten_tloai = $_GET['sid'];
                      $edit_sql = "SELECT * FROM theloai WHERE ma_tloai=$ten_tloai";
@@ -44,6 +50,7 @@
                         <a class="nav-link" href="article.php">Bài viết</a>
                     </li>
                 </ul>
+                <a class="nav-link " href="process_logout.php">Logout</a>
                 </div>
             </div>
         </nav>

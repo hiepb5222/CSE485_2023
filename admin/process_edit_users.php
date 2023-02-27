@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(!isset($_SESSION['admin'])){
+    header("Location:../login.php");
+}
+?>
+<?php
 $namebandau = html_escape($_POST['txtName']);
 $userbandau = html_escape($_POST['txtUser']);
 $passbandau = html_escape($_POST['txtPass']);
