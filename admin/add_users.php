@@ -54,27 +54,27 @@
                 <form action="process_add_users.php" method="post">
                             <div class="input-group mb-2">
                                 <span class="input-group-text" ><i class="fas fa-user"></i></span>
-                                <input type="text" name="txtName" class="form-control" placeholder="Name" >
+                                <input type="text" name="txtName" required class="form-control" placeholder="Name" >
                             </div>
 
                             <div class="input-group mb-2">
                                 <span class="input-group-text" ><i class="fas fa-user"></i></span>
-                                <input type="text" name="txtUser" class="form-control" placeholder="Username" >
+                                <input type="text" name="txtUser" required class="form-control" placeholder="Username" >
                             </div>
 
                             <div class="input-group mb-2">
                                 <span class="input-group-text" ><i class="bi bi-envelope-fill"></i></span>
-                                <input type="email" name="txtEmail" class="form-control" placeholder="Email" >
+                                <input type="email" name="txtEmail"required class="form-control" placeholder="Email" >
                             </div>
 
                             <div class="input-group mb-2">
                                 <span class="input-group-text" ><i class="fas fa-key"></i></span>
-                                <input type="password" name="txtPass" class="form-control" placeholder="Password" >
+                                <input type="password" name="txtPass" required class="form-control" placeholder="Password" >
                             </div>
 
                             <div class="input-group mb-2">
                                 <span class="input-group-text" ><i class="fas fa-key"></i></span>
-                                <input type="password" name="txtResetPass" class="form-control" placeholder="Reset password" >
+                                <input type="password" name="txtResetPass" required class="form-control" placeholder="Reset password" >
                             </div>
                             
                             <div class="form-group  float-end ">

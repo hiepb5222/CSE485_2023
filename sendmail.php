@@ -19,7 +19,7 @@ function send($mailR)
     $mail->Port = 587;
 
     // Email content
-    $mail->setFrom('dinhduy2012001@gmail.com', 'Your Name');
+    $mail->setFrom('D@gmail.com', 'Your Name');
     $mail->addAddress($mailR, 'Recipient Name');
     $mail->Subject = 'Test Email';
     $mail->Body = 'This is a test email message';

@@ -9,7 +9,7 @@ function html_escape($text): string
     $tentg = html_escape($_POST['txtAuthorName']);
 
     // ket noi csdl
-    require_once 'DB_conn.php';
+    require_once 'DB_con.php';
 
     //viet lenh sql de them du lieu 
     $themtg = "INSERT INTO tacgia (ten_tgia) VALUES ('$tentg')";

@@ -62,17 +62,17 @@
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text " style="width: 100px" id="lblTieude">Tiêu đề</span>
-                        <input type="text" class="form-control" name="txtTieude" 
+                        <input type="text" class="form-control" required name="txtTieude" 
                         value="<?php echo $row['tieude']?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text " style="width: 100px" id="lblBaihat">Tên bài hát</span>
-                        <input type="text" class="form-control" name="txtBaihat" 
+                        <input type="text" class="form-control" required name="txtBaihat" 
                         value="<?php echo $row['ten_bhat']?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" style="width: 100px" id="lblTheloai">Tên thể loại</span>
-                        <select class="form-select" aria-label="Default select example" name="txtTheloai"
+                        <select class="form-select" aria-label="Default select example"required  name="txtTheloai"
                         value="<?php echo $row['ten_tloai']?>">
                         <?php
                         require_once 'DB_con.php';
@@ -94,17 +94,17 @@
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" style="width: 100px" id="lblTomtat">Tóm tắt</span>
-                        <input type="text" class="form-control " name="txtTomtat" 
+                        <input type="text" class="form-control "required  name="txtTomtat" 
                         value="<?php echo $row['tomtat']?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" style="width: 100px" id="lblNoidung">Nội dung </span>
-                        <input type="text" class="form-control" name="txtNoidung" 
+                        <input type="text" class="form-control"  name="txtNoidung" 
                         value="<?php echo $row['noidung']?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" style="width: 100px" id="lblTacGia">Tác giả</span>
-                        <select class="form-select" aria-label="Default select example" name="txtTacgia"
+                        <select class="form-select" aria-label="Default select example"required name="txtTacgia"
                         value="<?php echo $row['ten_tgia']?>">
                         <?php
                         require_once 'DB_con.php';
