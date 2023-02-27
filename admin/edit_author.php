@@ -60,12 +60,12 @@
                 <form action="process_edit_author.php" method="post">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">Mã tác giả</span>
-                        <input type="text" class="form-control" name="txtAuthorId" readonly value ="<?=$r['ma_tgia']?> ">
+                        <input type="text" class="form-control" name="txtAuthorId" readonly value ="<?php echo $r['ma_tgia']?> ">
                     </div>
 
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên tác giả</span>
-                        <input type="text" class="form-control" name="txtAuthorName" value ="<?=$r['ten_tgia']?>">
+                        <input type="text" class="form-control" name="txtAuthorName" value ="<?php echo $r['ten_tgia']?>">
                     </div>
 
                     <div class="form-group  float-end ">

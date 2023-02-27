@@ -1,6 +1,6 @@
 <?php
     require_once 'DB_con.php';
-    function html_escape($text): string
+function html_escape($text): string
 {
    
     $text = $text ?? ''; 

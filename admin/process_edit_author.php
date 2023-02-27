@@ -1,9 +1,9 @@
 <?php
-      function html_escape($text): string
-      {
-          $text = $text ?? '';
-          return htmlspecialchars($text, ENT_QUOTES, 'UTF-8', false); // Return escaped string
-      }
+function html_escape($text): string
+{
+    $text = $text ?? '';
+    return htmlspecialchars($text, ENT_QUOTES, 'UTF-8', false); // Return escaped string
+}
     $matg = html_escape($_POST['txtAuthorId']);
     $tentg = html_escape($_POST['txtAuthorName']);
 
@@ -16,11 +16,11 @@
     // echo $themtg; exit;
 
     //thuc thi cau lenh them
-    if (mysqli_query($conn, $suatg)
-    ){
+if (mysqli_query($conn, $suatg)
+) {
     //in thong bao thanh cong 
-    header ("Location: author.php");
-    }
+    header("Location: author.php");
+}
     
 
 ?>

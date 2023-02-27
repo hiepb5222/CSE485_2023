@@ -3,6 +3,6 @@
 $matgia = $_GET['sid'];
 require_once 'DB_conn.php';
 $xoatg = "DELETE FROM tacgia WHERE ma_tgia = $matgia";
-mysqli_query ($conn,$xoatg);
-header ("Location: author.php")
+mysqli_query($conn, $xoatg);
+header("Location: author.php")
 ?>

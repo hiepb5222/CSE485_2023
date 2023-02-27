@@ -53,17 +53,17 @@
        
                 <div class="row mb-5">
                     <div class="col-sm-4">
-                        <img src="images/songs/<?= $r['hinhanh']?>" class="img-fluid" alt="...">
+                        <img src="images/songs/<?php echo $r['hinhanh']?>" class="img-fluid" alt="...">
                     </div>
                     <div class="col-sm-8">
                         <h5 class="card-title mb-2">
-                            <a href="" class="text-decoration-none"><?=$r['tieude']?></a>
+                            <a href="" class="text-decoration-none"><?php echo $r['tieude']?></a>
                         </h5>
-                        <p class="card-text"><span class=" fw-bold">Bài hát: </span><?=$r['ten_bhat']?> </p>
-                        <p class="card-text"><span class=" fw-bold">Thể loại: </span><?=$r['ten_tloai']?></p>
-                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?=$r['tomtat']?></p>
-                        <p class="card-text"><span class=" fw-bold">Nội dung: </span><?=$r['noidung']?></p>
-                        <p class="card-text"><span class=" fw-bold">Tác giả: </span><?=$r['ten_tgia']?></p>
+                        <p class="card-text"><span class=" fw-bold">Bài hát: </span><?php echo $r['ten_bhat']?> </p>
+                        <p class="card-text"><span class=" fw-bold">Thể loại: </span><?php echo $r['ten_tloai']?></p>
+                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?php echo $r['tomtat']?></p>
+                        <p class="card-text"><span class=" fw-bold">Nội dung: </span><?php echo $r['noidung']?></p>
+                        <p class="card-text"><span class=" fw-bold">Tác giả: </span><?php echo $r['ten_tgia']?></p>
 
                     </div>          
         </div>

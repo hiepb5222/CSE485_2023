@@ -58,18 +58,18 @@
                     </thead>
                     <tbody>
                         <?php
-                     require_once 'DB_con.php';
-                     $category = "SELECT * FROM theloai";
-                     $result = mysqli_query($conn, $category);
+                        require_once 'DB_con.php';
+                        $category = "SELECT * FROM theloai";
+                        $result = mysqli_query($conn, $category);
              
                         $count =0;
-                        if(mysqli_num_rows($result) > 0){
+                        if(mysqli_num_rows($result) > 0) {
                             while($row = mysqli_fetch_assoc($result)){
                                 $count ++;
-                        ?>
+                                ?>
                         <tr>
-                            <td><?= $count?></td>
-                            <td><?= $row['ten_tloai']?></td>
+                            <td><?php echo $count?></td>
+                            <td><?php echo $row['ten_tloai']?></td>
                             <td>
                                 <a href="edit_category.php?sid=<?php echo $row['ma_tloai']?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
@@ -77,7 +77,7 @@
                                 <a onclick="return confirm ('Bạn có muốn xóa thể loại này không ?');" href="process_delete_category.php?sid=<?php echo $row['ma_tloai']?>"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
-                        <?php
+                                <?php
                             }
                         }
                         ?>

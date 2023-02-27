@@ -1,11 +1,11 @@
 <?php
-    function html_escape($text): string
-    {
+function html_escape($text): string
+{
        
-        $text = $text ?? ''; 
+    $text = $text ?? ''; 
     
-        return htmlspecialchars($text, ENT_QUOTES, 'UTF-8', false); // Return escaped string
-    }
+    return htmlspecialchars($text, ENT_QUOTES, 'UTF-8', false); // Return escaped string
+}
     $tentg = html_escape($_POST['txtAuthorName']);
 
     // ket noi csdl
@@ -17,11 +17,11 @@
     // echo $themtg; exit;
 
     //thuc thi cau lenh them
-    if (mysqli_query($conn, $themtg)
-    ){
+if (mysqli_query($conn, $themtg)
+) {
     //in thong bao thanh cong 
-    header ("Location: author.php");
-    }
+    header("Location: author.php");
+}
     
 
 ?>

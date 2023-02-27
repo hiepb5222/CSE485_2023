@@ -70,26 +70,26 @@
     $result = mysqli_query($conn, $hienthi);
     //duyet qua result và in ra
     $count =0;
-    if(mysqli_num_rows($result) > 0){
-    while($r = mysqli_fetch_assoc($result)){
-        $count ++;
-        ?>
+    if(mysqli_num_rows($result) > 0) {
+        while($r = mysqli_fetch_assoc($result)){
+            $count ++;
+            ?>
 
         <tr>
-                            <td><?= $count?></td>
-                            <td><?= $r['ten_tgia']?></td>
-                            <td><?= $r['hinh_tgia']?></td>
+                            <td><?php echo $count?></td>
+                            <td><?php echo $r['ten_tgia']?></td>
+                            <td><?php echo $r['hinh_tgia']?></td>
                             <td>
-                            <a href="edit_author.php?sid=<?= $r['ma_tgia']?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="edit_author.php?sid=<?php echo $r['ma_tgia']?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
-                            <a onclick = "return confirm('Bạn có muốn xóa tác giả không?');"href="process_delete_author.php?sid=<?= $r['ma_tgia']?>"><i class="fa-solid fa-trash"></i></a>
+                            <a onclick = "return confirm('Bạn có muốn xóa tác giả không?');"href="process_delete_author.php?sid=<?php echo $r['ma_tgia']?>"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
-        <?php
+            <?php
+        }
     }
-}
-?>
+    ?>
 </tbody>
                 </table>
     </main>
