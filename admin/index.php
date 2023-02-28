@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['admin'])){
+    header("Location:../login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +42,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="article.php">Bài viết</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="users.php">Người dùng</a>
+                    </li>
                 </ul>
+                <a class="nav-link " href="process_logout.php">Logout</a>
                 </div>
             </div>
         </nav>
@@ -56,12 +66,12 @@
                         <?php 
                             require_once 'DB_con.php';
                             $sql="SELECT COUNT(id) as count FROM users";
-                            $result=mysqli_query($conn,$sql);
+                            $result=mysqli_query($conn, $sql);
                             $row=mysqli_fetch_array($result);
                             $count=$row['count'];
                             $count_str= strval($count);
                             echo $count_str;
-                            ?>
+                        ?>
                         </h5>
                     </div>
                 </div>
@@ -78,12 +88,12 @@
                         <?php 
                             require_once 'DB_con.php';
                             $sql="SELECT COUNT(ma_tloai) as count FROM theloai";
-                            $result=mysqli_query($conn,$sql);
+                            $result=mysqli_query($conn, $sql);
                             $row=mysqli_fetch_array($result);
                             $count=$row['count'];
                             $count_str= strval($count);
                             echo $count_str;
-                            ?>
+                        ?>
                         </h5>
                     </div>
                 </div>
@@ -100,12 +110,12 @@
                         <?php 
                             require_once 'DB_con.php';
                             $sql="SELECT COUNT(ma_tgia) as count FROM tacgia";
-                            $result=mysqli_query($conn,$sql);
+                            $result=mysqli_query($conn, $sql);
                             $row=mysqli_fetch_array($result);
                             $count=$row['count'];
                             $count_str= strval($count);
                             echo $count_str;
-                            ?>
+                        ?>
                         </h5>
                     </div>
                 </div>
@@ -122,7 +132,7 @@
                             <?php 
                             require_once 'DB_con.php';
                             $sql="SELECT COUNT(ma_bviet) as count FROM baiviet";
-                            $result=mysqli_query($conn,$sql);
+                            $result=mysqli_query($conn, $sql);
                             $row=mysqli_fetch_array($result);
                             $count=$row['count'];
                             $count_str= strval($count);
@@ -134,7 +144,7 @@
             </div>
         </div>
     </main>
-    <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2" style="height:80px">
+    <footer class="footer fixed-bottom bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2" style="height:80px">
         <h4 class="text-center text-uppercase fw-bold">TLU's music garden</h4>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

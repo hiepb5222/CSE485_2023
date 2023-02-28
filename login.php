@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,28 +53,28 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="login_check.php" method="post">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
-                                <input type="text" class="form-control" placeholder="username" >
+                                <input type="text" class="form-control" name='username' placeholder="username" >
                             </div>
 
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
-                                <input type="text" class="form-control" placeholder="password" >
+                                <input type="password" class="form-control"  name='password' placeholder="password" >
                             </div>
                             
                             <div class="row align-items-center remember">
                                 <input type="checkbox">Remember Me
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Login" class="btn float-end login_btn">
+                                <input type="submit" name="submit" value="Login" class="btn float-end login_btn">
                             </div>
                         </form>
                     </div>
                     <div class="card-footer">
                         <div class="d-flex justify-content-center ">
-                            Don't have an account?<a href="#" class="text-warning text-decoration-none">Sign Up</a>
+                            Don't have an account?<a href="./singup.php" class="text-warning text-decoration-none">Sign Up</a>
                         </div>
                         <div class="d-flex justify-content-center">
                             <a href="#" class="text-warning text-decoration-none">Forgot your password?</a>

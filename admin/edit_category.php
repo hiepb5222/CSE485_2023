@@ -1,10 +1,16 @@
 <?php
+session_start();
+if(!isset($_SESSION['admin'])){
+    header("Location:../login.php");
+}
+?>
+<?php
                      require_once 'DB_con.php';
                      $ten_tloai = $_GET['sid'];
                      $edit_sql = "SELECT * FROM theloai WHERE ma_tloai=$ten_tloai";
                      $result = mysqli_query($conn, $edit_sql);
                      $r = mysqli_fetch_assoc($result);
-                     ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,6 +50,7 @@
                         <a class="nav-link" href="article.php">Bài viết</a>
                     </li>
                 </ul>
+                <a class="nav-link " href="process_logout.php">Logout</a>
                 </div>
             </div>
         </nav>
@@ -57,12 +64,12 @@
                 <form action="process_edit_category.php" method="post">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">Mã thể loại</span>
-                        <input type="text" class="form-control" name="txtCatId" readonly value="<?=$r['ma_tloai']?>">
+                        <input type="text" class="form-control" name="txtCatId" readonly value="<?php echo $r['ma_tloai']?>">
                     </div>
 
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên thể loại</span>
-                        <input type="text" class="form-control" name="txtCatName" value="<?=$r['ten_tloai']?>">
+                        <input type="text" class="form-control" name="txtCatName" required value="<?php echo $r['ten_tloai']?>">
                     </div>
 
                     <div class="form-group  float-end ">

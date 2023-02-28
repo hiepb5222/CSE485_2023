@@ -1,14 +1,25 @@
 <?php
+session_start();
+if(!isset($_SESSION['admin'])){
+    header("Location:../login.php");
+}
+?>
+<?php
     require_once 'DB_con.php';
+function html_escape($text): string
+{
+    $text = $text ?? '';
+    return htmlspecialchars($text, ENT_QUOTES, 'UTF-8', false); // Return escaped string
+}
 if(isset($_POST['submit'])) {
     $ma_bviet=$_POST['txtBaiviet'];
-    $tieude=$_POST['txtTieude'];
-    $baihat=$_POST['txtBaihat'];
+    $tieude=html_escape($_POST['txtTieude']);
+    $baihat=html_escape($_POST['txtBaihat']);
     $theloai=$_POST['txtTheloai'];
-    $tomtat=$_POST['txtTomtat'];
-    $noidung=$_POST['txtNoidung'];
+    $tomtat=html_escape($_POST['txtTomtat']);
+    $noidung=html_escape($_POST['txtNoidung']);
     $tacgia=$_POST['txtTacgia'];
-    $ngayviet=$_POST['txtNgayviet'];
+    $ngayviet=html_escape($_POST['txtNgayviet']);
     $sql_up = "SELECT hinhanh FROM baiviet WHERE ma_bviet = '$ma_bviet'";
     $result_up = mysqli_query($conn, $sql_up);
     $row_up=mysqli_fetch_assoc($result_up);
@@ -16,8 +27,8 @@ if(isset($_POST['submit'])) {
         $hinhanh= $row_up['hinhanh'];
     }
     else{
-        $hinhanh=$_FILES['txtHinhanh']['name'];
-        $hinhanh_tmp=$_FILES['txtHinhanh']['tmp_name'];
+        $hinhanh=html_escape($_FILES['txtHinhanh']['name']);
+        $hinhanh_tmp=html_escape($_FILES['txtHinhanh']['tmp_name']);
         $target='C:/xampp/htdocs/CSE485_2023/images/songs/'.basename($_FILES['txtHinhanh']['name']);
         move_uploaded_file($hinhanh_tmp, $target);
     }

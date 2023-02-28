@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['admin'])){
+    header("Location:../login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +42,11 @@
                     <li class="nav-item">
                         <a class="nav-link active fw-bold" href="article.php">Bài viết</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="users.php">Người dùng</a>
+                    </li>
                 </ul>
+                <a class="nav-link " href="process_logout.php">Logout</a>
                 </div>
             </div>
         </nav>
@@ -47,14 +57,14 @@
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Thêm mới bài viết</h3>
-                <form action="process_add_article.php" method="post" enctype="multipart/form-data">
+                <form action="process_add_article.php" method="post"  enctype="multipart/form-data">
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" style="width: 100px" id="lblTieude">Tiêu đề</span>
-                        <input type="text" class="form-control" name="txtTieude" >
+                        <input type="text" class="form-control" required name="txtTieude" >
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" style="width: 100px" id="lblBaihat">Tên bài hát</span>
-                        <input type="text" class="form-control" name="txtBaihat" >
+                        <input type="text" class="form-control"  required name="txtBaihat" >
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" style="width: 100px" id="lblTheloai">Tên thể loại</span>
@@ -72,11 +82,11 @@
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" style="width: 100px" id="lblTomtat">Tóm tắt</span>
-                        <input type="text" class="form-control" name="txtTomtat" >
+                        <input type="text" class="form-control"required name="txtTomtat" >
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" style="width: 100px" d="lblNoidung">Nội dung </span>
-                        <input type="text" class="form-control" name="txtNoidung" >
+                        <input type="text" class="form-control"  required name="txtNoidung" >
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" style="width: 100px" id="lblTacGia">Tác giả</span>

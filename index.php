@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,21 +78,22 @@
         $result = mysqli_query($conn, $hienthi);
         //duyet qua result và in ra
         
-        if(mysqli_num_rows($result) > 0){
-        while($r = mysqli_fetch_assoc($result)){
-            ?>
+        if(mysqli_num_rows($result) > 0) {
+            while($r = mysqli_fetch_assoc($result)){
+                ?>
             <div class="col-sm-3">
                 <div class="card mb-2" style="width: 100%;">
-                    <img src="images/songs/<?= $r['hinhanh']?>" class="card-img-top" alt="...">
+                    <img src="images/songs/<?php echo $r['hinhanh']?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">
-                            <a href="detail.php?sid=<?= $r['ma_bviet']?>" class="text-decoration-none"><?= $r['ten_bhat']?></a>
+                            <a href="detail.php?sid=<?php echo $r['ma_bviet']?>" class="text-decoration-none"><?php echo $r['ten_bhat']?></a>
                         </h5>
                     </div>
                 </div>
             </div>
-            <?php
-        }}
+                <?php
+            }
+        }
         ?>
             
 

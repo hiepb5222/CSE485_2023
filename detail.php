@@ -1,6 +1,6 @@
 <?php
     //ketnoi
-    require_once './admin/DB_conn.php';
+    require_once './admin/DB_con.php';
     $id = $_GET['sid'];
     //cau lenh 
     $bv = "SELECT *FROM baiviet, theloai,tacgia WHERE ma_bviet = $id and baiviet.ma_tloai = theloai.ma_tloai and baiviet.ma_tgia=tacgia.ma_tgia";
@@ -68,7 +68,7 @@
                     </div>          
         </div>
     </main>
-    <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2" style="height:80px">
+    <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2 fixed-bottom" style="height:80px">
         <h4 class="text-center text-uppercase fw-bold">TLU's music garden</h4>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
