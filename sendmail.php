@@ -4,6 +4,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
+require 'PHPMailer/src/Exception.php';
 function send($mailR)
 {
   $mail = new PHPMailer(true);
@@ -13,8 +14,8 @@ function send($mailR)
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'duchai2211@gmail.com'; // Replace with your Gmail email address
-    $mail->Password = 'mpyoumbwdvwmjiua'; // Replace with your Gmail password or app-specific password
+    $mail->Username = 'dinhduy2012001@gmail.com'; // Replace with your Gmail email address
+    $mail->Password = 'rxafduzqlinozdao'; // Replace with your Gmail password or app-specific password
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
