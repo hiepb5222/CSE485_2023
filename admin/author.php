@@ -56,8 +56,7 @@
                             <th scope="col">Tên tác giả</th>
                             <th scope="col">Hình ảnh</th>
                             <th>Sửa</th>
-                            <th>Xóa</th>
-                            
+                            <th>Xóa</th>  
                         </tr>
                     </thead>
                     <tbody>
@@ -74,11 +73,13 @@
     while($r = mysqli_fetch_assoc($result)){
         $count ++;
         ?>
-
         <tr>
                             <td><?= $count?></td>
                             <td><?= $r['ten_tgia']?></td>
-                            <td><?= $r['hinh_tgia']?></td>
+                            <!-- <td><?= $r['hinh_tgia']?></td> -->
+                            <td>
+                                <img style="width: 100px;" src="/CSE485_2023/images/tacgia/<?php echo $r['hinh_tgia'];?>">
+                            </td>
                             <td>
                             <a href="edit_author.php?sid=<?= $r['ma_tgia']?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>

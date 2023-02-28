@@ -72,7 +72,7 @@
         <div class="row">
         <?php
         
-        require_once './admin/DB_conn.php';
+        require_once './admin/DB_con.php';
         //cau lenh 
         $hienthi = "SELECT * FROM baiviet LIMIT 8";
         //thuc thi cau lenh
