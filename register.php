@@ -1,9 +1,5 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
 require 'sendmail.php';
 function html_escape($text): string
 {
@@ -14,7 +10,6 @@ function html_escape($text): string
 }
 if (isset($_POST['signbtn'])) {
   // Lay tu FORM
-  $id = html_escape($_POST['sid']);
   $name = html_escape($_POST['txtName']);
   $user = html_escape($_POST['txtUser']);
   $email = html_escape($_POST['txtEmail']);
