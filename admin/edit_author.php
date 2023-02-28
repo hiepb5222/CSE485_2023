@@ -64,7 +64,7 @@ if(!isset($_SESSION['admin'])){
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Sửa thông tin tác giả</h3>
-                <form action="process_edit_author.php" method="post">
+                <form action="process_edit_author.php" method="post" enctype="multipart/form-data">
                 <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">Mã tác giả</span>
                         <input type="text" class="form-control" name="txtAuthorId" readonly value ="<?php echo $r['ma_tgia']?> ">
@@ -73,6 +73,11 @@ if(!isset($_SESSION['admin'])){
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên tác giả</span>
                         <input type="text" class="form-control" name="txtAuthorName"required value ="<?php echo $r['ten_tgia']?>">
+                    </div>
+
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" style="width: 100px" id="lblHinhanhtgia"> Hình ảnh</span>
+                        <input type="file" class="form-control" name="txtHinhanhtgia" value ="<?=$r['hinh_tgia']?>">
                     </div>
 
                     <div class="form-group  float-end ">

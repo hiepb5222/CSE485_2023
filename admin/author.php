@@ -63,8 +63,7 @@ if(!isset($_SESSION['admin'])){
                             <th scope="col">Tên tác giả</th>
                             <th scope="col">Hình ảnh</th>
                             <th>Sửa</th>
-                            <th>Xóa</th>
-                            
+                            <th>Xóa</th>  
                         </tr>
                     </thead>
                     <tbody>
@@ -77,15 +76,17 @@ if(!isset($_SESSION['admin'])){
     $result = mysqli_query($conn, $hienthi);
     //duyet qua result và in ra
     $count =0;
-    if(mysqli_num_rows($result) > 0) {
-        while($r = mysqli_fetch_assoc($result)){
-            $count ++;
-            ?>
-
+    if(mysqli_num_rows($result) > 0){
+    while($r = mysqli_fetch_assoc($result)){
+        $count ++;
+        ?>
         <tr>
-                            <td><?php echo $count?></td>
-                            <td><?php echo $r['ten_tgia']?></td>
-                            <td><?php echo $r['hinh_tgia']?></td>
+                            <td><?= $count?></td>
+                            <td><?= $r['ten_tgia']?></td>
+                            <!-- <td><?= $r['hinh_tgia']?></td> -->
+                            <td>
+                                <img style="width: 100px;" src="/CSE485_2023/images/tacgia/<?php echo $r['hinh_tgia'];?>">
+                            </td>
                             <td>
                             <a href="edit_author.php?sid=<?php echo $r['ma_tgia']?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
