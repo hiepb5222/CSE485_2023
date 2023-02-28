@@ -20,10 +20,10 @@ function send($mailR)
     $mail->Port = 587;
 
     // Email content
-    $mail->setFrom('D@gmail.com', 'Your Name');
+    $mail->setFrom('duchai2211@gmail.com', 'Duc Hai');
     $mail->addAddress($mailR, 'Recipient Name');
-    $mail->Subject = 'Test Email';
-    $mail->Body = 'This is a test email message';
+    $mail->Subject = 'Notify';
+    $mail->Body = 'Đăng ký tài khoản thành công.';
 
     // Send email
     $mail->send();
