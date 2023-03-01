@@ -14,8 +14,8 @@ function send($mailR)
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'dinhduy2012001@gmail.com'; // Replace with your Gmail email address
-    $mail->Password = 'rxafduzqlinozdao'; // Replace with your Gmail password or app-specific password
+    $mail->Username = 'duchai2211@gmail.com'; // Replace with your Gmail email address
+    $mail->Password = 'zmmfierxsfbonjzp'; // Replace with your Gmail password or app-specific password
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
